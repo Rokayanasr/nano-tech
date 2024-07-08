@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("i18next", selectedLanguage);
     });
 
-    const initialLanguage = localStorage.getItem("i18next") || "en";
+    const initialLanguage = localStorage.getItem("i18next") || "ar";
     setLanguage(initialLanguage);
     loadCards();
     tabsClick();
