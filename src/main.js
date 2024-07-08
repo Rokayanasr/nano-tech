@@ -131,3 +131,26 @@ document.addEventListener("DOMContentLoaded", () => {
     loadCards();
     tabsClick();
 });
+
+// Initialize emailjs for form submission
+emailjs.init("qtccHPQN3hT81SgUx"); // Replace with your actual public key
+
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        emailjs.sendForm("service_44aydbo", "template_vlze3xf", form).then(
+            () => {
+                console.log("SUCCESS!");
+                alert("Message sent successfully!");
+            },
+            (error) => {
+                console.log("FAILED...", error.text);
+                alert("Failed to send message: " + error.text);
+            }
+        );
+    });
+});
+
