@@ -20,7 +20,7 @@ const setLanguage = (language) => {
         element.innerHTML = translations[language][translationKey];
     });
 
-    document.dir = language === "en" ? "ltr" : "rtl";
+    document.dir = language === "ar" ? "rtl" : "ltr";
 };
 
 // Function to handle tab clicks and filter cards accordingly
@@ -47,7 +47,7 @@ const tabsClick = () => {
 
 // Function to load and render cards based on selected language
 const loadCards = () => {
-    const language = localStorage.getItem("i18next") || "en";
+    const language = localStorage.getItem("i18next") || "ar";
     const technicalData = translations[language]["Cards"];
     const marketingData = translations[language]["MarketingCard"];
     const imageService = ["assets/cpu.svg", "assets/designer.svg", "assets/setting.svg", "assets/gear.svg", "assets/digitalization.svg"];
