@@ -79,7 +79,7 @@ const loadCards = (language) => {
                 <h4 class='text-white font-bold'>${card.title}</h4>
             </div>
             <div class='flex flex-col justify-center'>
-                <h5 class='mb-4 text-justify text-md sm:text-sm text-white'>${card.description}</h5>
+                <h5 class='mb-4 text-justify text-sm sm:text-sm text-white'>${card.description}</h5>
                 
             </div>
             <a href="#contactus" class='flex gap-1 text-md sm:text-sm font-semibold text-secondary items-center hover:underline'>
