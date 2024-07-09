@@ -133,7 +133,9 @@ function handleService(tabId) {
             : (document.getElementById("selected-title").textContent = "Marketing Solutions");
     }
 }
-
+function removeClass() {
+    document.getElementById('select-div').removeClass('order-last')
+}
 // Initialize language selection and card loading on DOM load
 document.addEventListener("DOMContentLoaded", () => {
     const languageSelector = document.querySelector("select");

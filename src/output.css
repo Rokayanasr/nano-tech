@@ -1137,6 +1137,10 @@ input:checked + .toggle-bg{
   z-index: 50;
 }
 
+.order-last{
+  order: 9999;
+}
+
 .mb-1{
   margin-bottom: 0.25rem;
 }
@@ -1314,6 +1318,10 @@ input:checked + .toggle-bg{
   flex-shrink: 1;
 }
 
+.flex-grow{
+  flex-grow: 1;
+}
+
 .basis-1\/4{
   flex-basis: 25%;
 }
@@ -1388,6 +1396,10 @@ input:checked + .toggle-bg{
   flex-direction: column;
 }
 
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
 .place-content-center{
   place-content: center;
 }
@@ -1444,10 +1456,6 @@ input:checked + .toggle-bg{
   gap: 6rem;
 }
 
-.gap-32{
-  gap: 8rem;
-}
-
 .gap-4{
   gap: 1rem;
 }
@@ -1474,6 +1482,12 @@ input:checked + .toggle-bg{
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-3 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .overflow-hidden{
@@ -1612,14 +1626,14 @@ input:checked + .toggle-bg{
   padding-right: 0.75rem;
 }
 
-.px-4{
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 .px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+.px-7{
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
 }
 
 .py-10{
@@ -1660,11 +1674,6 @@ input:checked + .toggle-bg{
 .py-5{
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.px-7{
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .pb-14{
@@ -2768,14 +2777,14 @@ body ::selection {
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
 
-.hover\:bg-phover:hover{
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 82 230 / var(--tw-bg-opacity));
-}
-
 .hover\:bg-white:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-phover:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(96 82 230 / var(--tw-bg-opacity));
 }
 
 .hover\:text-blue-600:hover{
@@ -2964,12 +2973,20 @@ body ::selection {
 }
 
 @media (min-width: 640px){
+  .sm\:order-last{
+    order: 9999;
+  }
+
   .sm\:mb-0{
     margin-bottom: 0px;
   }
 
   .sm\:flex{
     display: flex;
+  }
+
+  .sm\:inline-flex{
+    display: inline-flex;
   }
 
   .sm\:hidden{
@@ -3004,20 +3021,8 @@ body ::selection {
     justify-content: center;
   }
 
-  .sm\:justify-between{
-    justify-content: space-between;
-  }
-
-  .sm\:justify-around{
-    justify-content: space-around;
-  }
-
   .sm\:gap-2{
     gap: 0.5rem;
-  }
-
-  .sm\:gap-3{
-    gap: 0.75rem;
   }
 
   .sm\:gap-32{
@@ -3041,6 +3046,11 @@ body ::selection {
   .sm\:rounded-s-lg{
     border-start-start-radius: 0.5rem;
     border-end-start-radius: 0.5rem;
+  }
+
+  .sm\:bg-primary{
+    --tw-bg-opacity: 1;
+    background-color: rgb(120 94 230 / var(--tw-bg-opacity));
   }
 
   .sm\:px-20{
@@ -3075,6 +3085,10 @@ body ::selection {
     order: 2;
   }
 
+  .md\:order-1{
+    order: 1;
+  }
+
   .md\:mb-2{
     margin-bottom: 0.5rem;
   }
@@ -3093,6 +3107,10 @@ body ::selection {
 
   .md\:w-auto{
     width: auto;
+  }
+
+  .md\:flex-grow-0{
+    flex-grow: 0;
   }
 
   .md\:grid-cols-2{
@@ -3121,6 +3139,12 @@ body ::selection {
     --tw-space-x-reverse: 0;
     margin-right: calc(1rem * var(--tw-space-x-reverse));
     margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .md\:space-x-6 > :not([hidden]) ~ :not([hidden]){
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
   .md\:border-0{

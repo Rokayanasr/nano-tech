@@ -11,72 +11,66 @@
 
 <body>
     <!-- =============NAVBAR================ -->
-    <nav
-        class="bg-opacity-30 nav-blur my-container backdrop-blur-lg bg-white z-20 fixed w-full shadow-lg ring-1 ring-black/5">
-        <div class="max-w-screen-xl flex items-center justify-between">
-            <a href="#main" class="flex items-center rtl:space-x-reverse">
+    <nav class="bg-opacity-30 nav-blur my-container backdrop-blur-lg bg-white z-20 fixed w-full shadow-lg ring-1 ring-black/5">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between">
+            <a href="#main" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./assets/logo.png" class="h-12 sm:h-14" alt="nano Logo" />
                 <span class="sm:flex hidden flex-col gap-1.5 logo-hide">
                     <span class="text-white logo-nav uppercase" data-i18n="Logo name">Logo name</span>
-                    <span class="text-white font-semibold logo-title uppercase" data-i18n="Logo description">Logo
-                        description</span>
+                    <span class="text-white font-semibold logo-title uppercase" data-i18n="Logo description">Logo description</span>
                 </span>
             </a>
-            <div class='flex items-center md:order-2 space-x-1 gap-6 md:space-x-0 rtl:space-x-reverse'>
-                <select id="lang-select"
-                    class="bg-primary text-white hover:bg-phover outline outline-white outline-1 p-2 font-medium text-xs rounded-lg cursor-pointer">
+            <div class="flex items-center sm:order-last space-x-1 gap-6 md:space-x-0 rtl:space-x-reverse">
+
+                <!-- <select
+                    id="lang-select"
+                    class="inline-flex items-center bg-primary hover:bg-phover outline outline-white outline-1 font-medium justify-center text-xs rounded-lg cursor-pointer"
+                >
+                    <option value="en" data-i18n="english">English (UK)</option>
+                    <option value="ar" data-i18n="arabic">العربية (UAE)</option>
+                </select> -->
+                <select id="lang-select" class="inline-flex bg-primary text-white hover:bg-phover outline outline-white outline-1 p-2 font-medium text-xs rounded-lg cursor-pointer">
                     <option value="en" data-i18n="english">English (UK)</option>
                     <option value="ar" data-i18n="arabic">العربية (UAE)</option>
                 </select>
-                <button data-collapse-toggle="navbar-default" type="button"
-                class='inline-flex items-center p-2 w-10 h-10 justify-center text-lg text-white rounded-lg md:hidden focus:ring-1 focus:outline-none ring-white'
-                aria-controls="navbar-default" aria-expanded="false">
+                
+                <button
+                    data-collapse-toggle="navbar-default"
+                    type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-lg text-white rounded-lg md:hidden focus:ring-1 focus:outline-none ring-white"
+                    aria-controls="navbar-default"
+                    aria-expanded="false"
+                >
                     <span class="sr-only">Open main menu</span>
-                    <svg class="w-10 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 17 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
+                    <svg class="w-10 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                     </svg>
                 </button>
             </div>
-            <div class="items-center space-x-1 justify-between hidden w-full lg:flex md:w-auto" id="navbar-default">
-                <ul
-                    class="flex flex-col p-4 md:p-0 mt-4 md:space-x-4 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+            <div class="items-center justify-between hidden w-full lg:flex md:w-auto md:order-1" id="navbar-default">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 md:space-x-6 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                     <li class="nav-btn">
-                        <a href="#main"
-                            class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent"
-                            data-i18n="Home"> Home </a>
+                        <a href="#main" class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent" data-i18n="Home"> Home </a>
                         <div class="border-transparent element rounded-full"></div>
                     </li>
                     <li class="nav-btn">
-                        <a href="#aboutus"
-                            class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent"
-                            data-i18n="About Us"> About Us </a>
+                        <a href="#aboutus" class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent" data-i18n="About Us"> About Us </a>
                         <div class="border-transparent element rounded-full"></div>
                     </li>
                     <li class="nav-btn">
-                        <a href="#service"
-                            class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent"
-                            data-i18n="Services"> Services </a>
+                        <a href="#service" class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent" data-i18n="Services"> Services </a>
                         <div class="border-transparent element rounded-full"></div>
                     </li>
                     <li class="nav-btn">
-                        <a href="#consultancy"
-                            class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent"
-                            data-i18n="Subscribe"> Subscribe </a>
+                        <a href="#consultancy" class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent" data-i18n="Subscribe"> Subscribe </a>
                         <div class="border-transparent element rounded-full"></div>
                     </li>
                     <li class="nav-btn">
-                        <a href="#contactus"
-                            class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent"
-                            data-i18n="Contact Us"> Contact Us </a>
+                        <a href="#contactus" class="block py-5 nav-link px-3 md:p-0 text-xl uppercase rounded md:hover:bg-transparent" data-i18n="Contact Us"> Contact Us </a>
                         <div class="border-transparent element rounded-full"></div>
                     </li>
                 </ul>
-
             </div>
-
-
         </div>
     </nav>
 
