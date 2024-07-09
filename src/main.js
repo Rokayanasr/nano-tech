@@ -51,10 +51,24 @@ const loadCards = () => {
     const technicalData = translations[language]["Cards"];
     const marketingData = translations[language]["MarketingCard"];
     const imageService = ["assets/cpu.svg", "assets/designer.svg", "assets/setting.svg", "assets/gear.svg", "assets/digitalization.svg"];
-    const imageMarketing = ["assets/online-marketing.svg", "assets/social-media.svg", "assets/headphone.svg", "assets/creative-work.svg", "assets/pen-tablet.svg", "assets/palette.svg"];
+    const imageMarketing = [
+        "assets/online-marketing.svg",
+        "assets/social-media.svg",
+        "assets/headphone.svg",
+        "assets/creative-work.svg",
+        "assets/pen-tablet.svg",
+        "assets/palette.svg",
+    ];
     const techContainer = document.getElementById("tech-container");
     const marketingContainer = document.getElementById("marketing-container");
-
+    if (language === "en") {
+        document.getElementById('marketing-a').classList.add('sm:rounded-e-lg');
+        document.getElementById('marketing-a').classList.remove('sm:rounded-l-lg');
+    } else {
+        document.getElementById('marketing-a').classList.add('sm:rounded-l-lg');
+        document.getElementById('marketing-a').classList.remove('sm:rounded-e-lg');
+    }
+    
     techContainer.innerHTML = ""; // Clear existing cards
     marketingContainer.innerHTML = ""; // Clear existing cards
 
@@ -106,14 +120,18 @@ function handleService(tabId) {
     const techContainer = document.getElementById("tech-container");
     const marketingContainer = document.getElementById("marketing-container");
 
-    if (tabId === 'tech-tab') {
+    if (tabId === "tech-tab") {
         techContainer.style.display = "grid";
         marketingContainer.style.display = "none";
-        document.getElementById("selected-title").textContent = "الخدمات التقنية";
-    } else if (tabId === 'marketing-tab') {
+        localStorage.getItem("i18next") === "ar"
+            ? (document.getElementById("selected-title").textContent = "الخدمات التقنية")
+            : (document.getElementById("selected-title").textContent = "Tech Solutions");
+    } else if (tabId === "marketing-tab") {
         techContainer.style.display = "none";
         marketingContainer.style.display = "grid";
-        document.getElementById("selected-title").textContent = "الخدمات التسويقية";
+        localStorage.getItem("i18next") === "ar"
+            ? (document.getElementById("selected-title").textContent = "الخدمات التسويقية")
+            : (document.getElementById("selected-title").textContent = "Marketing Solutions");
     }
 }
 
@@ -153,4 +171,3 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
-
