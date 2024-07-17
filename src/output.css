@@ -2804,6 +2804,38 @@ body ::selection {
   }
 }
 
+.fade-in-top{
+  animation:fade-in-top .6s cubic-bezier(.39,.575,.565,1.000) both
+}
+
+@keyframes fade-in-top{
+  0%{
+    transform:translateY(-50px);
+    opacity:0
+  }
+
+  100%{
+    transform:translateY(0);
+    opacity:1
+  }
+}
+
+.fade-in-bottom{
+  animation:fade-in-bottom .6s cubic-bezier(.39,.575,.565,1.000) both
+}
+
+@keyframes fade-in-bottom{
+  0%{
+    transform:translateY(50px);
+    opacity:0
+  }
+
+  100%{
+    transform:translateY(0);
+    opacity:1
+  }
+}
+
 .focus-within\:z-10:focus-within{
   z-index: 10;
 }
@@ -3260,6 +3292,3 @@ body ::selection {
 .rtl\:space-x-reverse:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 1;
 }
-
-
-  

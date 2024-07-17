@@ -267,12 +267,18 @@ function handleService(tabId) {
         localStorage.getItem("i18next") === "ar"
             ? (document.getElementById("selected-title").textContent = "الخدمات التقنية")
             : (document.getElementById("selected-title").textContent = "Tech Solutions");
+            
+            techContainer.classList.add('fade-in-top');
+            marketingContainer.classList.remove('fade-in-top');
     } else if (tabId === "marketing-tab") {
         techContainer.style.display = "none";
         marketingContainer.style.display = "grid";
         localStorage.getItem("i18next") === "ar"
             ? (document.getElementById("selected-title").textContent = "الخدمات التسويقية")
             : (document.getElementById("selected-title").textContent = "Marketing Solutions");
+
+            marketingContainer.classList.add('fade-in-top');
+            techContainer.classList.remove('fade-in-top');
     }
 }
 function removeClass() {
@@ -282,6 +288,9 @@ function removeClass() {
 emailjs.init("qtccHPQN3hT81SgUx"); // Replace with your actual public key
 
 document.addEventListener("DOMContentLoaded", () => {
+    AOS.init({
+        duration: 1000
+    });
     document.getElementById("loading").style.display = "none";
     document.getElementById("body").style.display = "block";
     const navLinks = document.querySelectorAll("#navbar-default .nav-link");
@@ -324,3 +333,8 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
+
+window.addEventListener('load', function() {
+    AOS.refresh();
+});
+
