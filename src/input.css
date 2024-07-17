@@ -141,6 +141,7 @@ body ::selection {
         background-position: bottom 100px left -170px !important;
         background-repeat: no-repeat !important;
         background-size: cover !important;
+        height: 80vh;
     }
     .hero-title{
         width: 100% !important;
