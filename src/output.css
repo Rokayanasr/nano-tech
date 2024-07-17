@@ -3277,6 +3277,11 @@ body ::selection {
     padding-bottom: 3.5rem;
   }
 
+  .lg\:py-0{
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
   .lg\:pb-14{
     padding-bottom: 3.5rem;
   }
