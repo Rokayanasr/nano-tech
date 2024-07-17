@@ -1495,6 +1495,10 @@ input:checked + .toggle-bg{
   gap: 2rem;
 }
 
+.gap-9{
+  gap: 2.25rem;
+}
+
 .space-x-1 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
   margin-right: calc(0.25rem * var(--tw-space-x-reverse));
@@ -2212,7 +2216,8 @@ body ::selection {
     background-position: bottom 100px left -170px !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
-    height: 80vh;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 
   .hero-title{
@@ -2243,7 +2248,6 @@ body ::selection {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 35px;
   margin: 0 auto;
   height: 481px;
 }
@@ -3194,6 +3198,10 @@ body ::selection {
     justify-content: space-between;
   }
 
+  .md\:gap-9{
+    gap: 2.25rem;
+  }
+
   .md\:space-x-0 > :not([hidden]) ~ :not([hidden]){
     --tw-space-x-reverse: 0;
     margin-right: calc(0px * var(--tw-space-x-reverse));
@@ -3275,11 +3283,6 @@ body ::selection {
   .lg\:py-14{
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
-  }
-
-  .lg\:py-0{
-    padding-top: 0px;
-    padding-bottom: 0px;
   }
 
   .lg\:pb-14{
