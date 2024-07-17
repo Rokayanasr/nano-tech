@@ -1158,10 +1158,6 @@ input:checked + .toggle-bg{
   margin-bottom: 0.5rem;
 }
 
-.mb-4{
-  margin-bottom: 1rem;
-}
-
 .mb-5{
   margin-bottom: 1.25rem;
 }
@@ -1419,10 +1415,6 @@ input:checked + .toggle-bg{
   flex-wrap: wrap;
 }
 
-.place-content-center{
-  place-content: center;
-}
-
 .content-between{
   align-content: space-between;
 }
@@ -1455,6 +1447,14 @@ input:checked + .toggle-bg{
   justify-content: space-between;
 }
 
+.justify-around{
+  justify-content: space-around;
+}
+
+.justify-evenly{
+  justify-content: space-evenly;
+}
+
 .gap-1{
   gap: 0.25rem;
 }
@@ -1473,6 +1473,10 @@ input:checked + .toggle-bg{
 
 .gap-24{
   gap: 6rem;
+}
+
+.gap-3{
+  gap: 0.75rem;
 }
 
 .gap-4{
@@ -1639,6 +1643,10 @@ input:checked + .toggle-bg{
   padding: 1rem;
 }
 
+.p-8{
+  padding: 2rem;
+}
+
 .px-2{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1652,11 +1660,6 @@ input:checked + .toggle-bg{
 .px-5{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
-}
-
-.px-7{
-  padding-left: 1.75rem;
-  padding-right: 1.75rem;
 }
 
 .py-10{
@@ -1800,6 +1803,10 @@ input:checked + .toggle-bg{
 
 .leading-none{
   line-height: 1;
+}
+
+.leading-tight{
+  line-height: 1.25;
 }
 
 .tracking-wide{
@@ -2025,10 +2032,8 @@ h4 , time{
 }
 
 h5{
-  /* font-size: 1.1rem; */
-  font-size: 1rem;
-  line-height: 1.5rem;
-  line-height: 1.5;
+  font-size: 1.2rem;
+  /* @apply leading-normal; */
 }
 
 p{
@@ -2125,7 +2130,7 @@ p{
 
 @media (max-width: 639px) {
   :root{
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .my-container{
@@ -2358,12 +2363,28 @@ body ::selection {
 /* =====================SERVICES================= */
 
 .service-card {
-  width: 300px;
-  height: 420px;
+  height: 400px ;
   background: linear-gradient(to bottom left, #31175d0f, #221553);
   opacity: 1;
   transition: 0.5s ease-in-out;
 }
+
+.description-control{
+  transition: 0.5s all ease-in-out;
+  /* background-color: red;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;  /* lines i want to show */
+  /* -webkit-box-orient: vertical;
+    overflow: hidden;  */
+}
+
+/* .description-control{
+    background-color: red;
+    height: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} */
 
 .service-card:hover {
   transform: scale(1.01);
@@ -2373,8 +2394,7 @@ body ::selection {
 
 @media (max-width: 768px) {
   .service-card {
-    width: -moz-fit-content;
-    width: fit-content;
+    /* width: fit-content; */
     height: 450px;
   }
 }
@@ -2404,8 +2424,8 @@ body ::selection {
 /* =====================Marketing================= */
 
 .marketing-card {
-  width: 300px;
-  height: 300px;
+  /* width: 300px;
+    height: 300px; */
   background: linear-gradient(to bottom, #31175d0f, #1d1553);
   opacity: 1;
   transition: 0.5s ease-in-out;
@@ -3039,20 +3059,12 @@ body ::selection {
     justify-content: flex-end;
   }
 
-  .sm\:justify-center{
-    justify-content: center;
-  }
-
   .sm\:gap-2{
     gap: 0.5rem;
   }
 
   .sm\:gap-32{
     gap: 8rem;
-  }
-
-  .sm\:gap-8{
-    gap: 2rem;
   }
 
   .sm\:rounded-e-lg{
@@ -3091,9 +3103,9 @@ body ::selection {
     text-align: center;
   }
 
-  .sm\:text-sm{
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  .sm\:text-xl{
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 }
 
@@ -3215,6 +3227,10 @@ body ::selection {
 
   .lg\:items-start{
     align-items: flex-start;
+  }
+
+  .lg\:p-8{
+    padding: 2rem;
   }
 
   .lg\:py-14{

@@ -1,6 +1,5 @@
 import translations from "./translations.js";
 
-
 // Function to set language based on user selection
 const setLanguage = (language) => {
     const elements = document.querySelectorAll("[data-i18n]");
@@ -62,49 +61,196 @@ const loadCards = (language) => {
         document.getElementById("marketing-a").classList.add("sm:rounded-l-lg");
         document.getElementById("marketing-a").classList.remove("sm:rounded-e-lg");
     }
+    const allServiceCards = [];
 
     technicalData.forEach((card, index) => {
         const serviceCard = document.createElement("div");
-        serviceCard.className = "service-card flex sm:gap-8 gap-4 flex-col justify-center sm:justify-center px-7 rounded-lg shadow";
-        serviceCard.innerHTML = `
-            <div class='flex items-center gap-4'>
-                <img src='${imageService[index]}' alt='${card.title}' class='w-10 text-white' />
-                <h4 class='text-white font-bold'>${card.title}</h4>
-            </div>
-            <div class='flex flex-col justify-center'>
-                <h5 class='mb-4 text-justify text-sm sm:text-sm text-white'>${card.description}</h5>
-                
-            </div>
-            <a href="#contactus" class='flex gap-1 text-md sm:text-sm font-semibold text-secondary items-center hover:underline'>
+        serviceCard.className = "service-card flex flex-col items-start justify-evenly p-4 lg:p-8 rounded-lg shadow";
+        allServiceCards.push(serviceCard);
+
+        let description = card.description;
+        const maxLength = 140;
+
+        if (description.length > maxLength) {
+            const shortDescription = description.substring(0, maxLength) + "...";
+            serviceCard.innerHTML = `
+                <div class='flex justify-start items-center gap-3'>
+                    <img src='${imageService[index]}' alt='${card.title}' class='w-10 text-white' />
+                    <h4 class='text-white font-bold'>${card.title}</h4>
+                </div>
+                <div class='flex flex-col justify-center'>
+                    <h5 class='text-justify text-md leading-tight text-white'>${shortDescription}</h5>
+                    <a href="#" class='text-secondary hover:underline see-more'>${card.SeeMore}</a>
+                    <a href="#" class='text-secondary hover:underline see-less hidden'>${card.SeeLess}</a>
+                </div>
+                <a href="#contactus" class='flex gap-1 text-md font-semibold text-secondary items-center hover:underline'>
                     <svg class='w-3 h-3 rtl:rotate-[270deg]' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 18 18'>
                         <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'/>
                     </svg>
                     ${card.buttonText}
                 </a>
-        `;
+            `;
+
+            const seeMoreBtn = serviceCard.querySelector(".see-more");
+            const seeLessBtn = serviceCard.querySelector(".see-less");
+            const descriptionEl = serviceCard.querySelector("h5");
+
+            seeMoreBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                closeAllOtherCards(serviceCard);
+                serviceCard.style.height = "fit-content";
+                serviceCard.style.gap = "1rem";
+                descriptionEl.textContent = description;
+                seeMoreBtn.classList.add("hidden");
+                seeLessBtn.classList.remove("hidden");
+            });
+
+            seeLessBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                if (window.innerWidth <= 768) {
+                    serviceCard.style.height = "400px";
+                } else {
+                    serviceCard.style.height = "340px";
+                }
+                serviceCard.style.gap = "0";
+                descriptionEl.textContent = shortDescription;
+                seeMoreBtn.classList.remove("hidden");
+                seeLessBtn.classList.add("hidden");
+            });
+        } else {
+            serviceCard.innerHTML = `
+                <div class='flex justify-start items-center gap-3'>
+                    <img src='${imageService[index]}' alt='${card.title}' class='w-10 text-white' />
+                    <h4 class='text-white font-bold'>${card.title}</h4>
+                </div>
+                <div class='flex flex-col justify-center'>
+                    <h5 class='text-justify leading-tight text-md text-white'>${description}</h5>
+                </div>
+                <a href="#contactus" class='flex gap-1 text-md font-semibold text-secondary items-center hover:underline'>
+                    <svg class='w-3 h-3 rtl:rotate-[270deg]' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 18 18'>
+                        <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'/>
+                    </svg>
+                    ${card.buttonText}
+                </a>
+            `;
+        }
+
         techContainer.appendChild(serviceCard);
     });
 
+    function closeAllOtherCards(currentCard) {
+        allServiceCards.forEach((card) => {
+            if (card !== currentCard) {
+                const seeMoreBtn = card.querySelector(".see-more");
+                const seeLessBtn = card.querySelector(".see-less");
+                const descriptionEl = card.querySelector("h5");
+
+                if (seeMoreBtn && seeLessBtn && descriptionEl) {
+                    // card.style.height = '340px';
+                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
+                    seeMoreBtn.classList.remove("hidden");
+                    seeLessBtn.classList.add("hidden");
+                }
+            }
+        });
+    }
+
+    const allMarketingCards = [];
+
     marketingData.forEach((card, index) => {
         const marketingCard = document.createElement("div");
-        marketingCard.className = "service-card flex sm:gap-8 gap-4 flex-col justify-center sm:justify-center px-7 rounded-lg shadow";
-        marketingCard.innerHTML = `
-            <div class='flex items-center gap-4'>
-                <img src='${imageMarketing[index]}' alt='${card.title}' class='w-10 text-white' />
-                <h4 class='text-white font-bold'>${card.title}</h4>
-            </div>
-            <div class='flex flex-col justify-center'>
-                <h5 class='text-justify text-md sm:text-sm text-white'>${card.description}</h5>
-            </div>
-            <a href="#contactus" class='flex gap-1 text-md sm:text-sm font-semibold text-secondary items-center hover:underline'>
+        marketingCard.className = "service-card flex flex-col items-start justify-around p-4 lg:p-8 rounded-lg shadow";
+        allMarketingCards.push(marketingCard);
+
+        let description = card.description;
+        const maxLength = 148;
+
+        if (description.length > maxLength) {
+            const shortDescription = description.substring(0, maxLength) + "...";
+            marketingCard.innerHTML = `
+                <div class='flex justify-start items-center gap-4'>
+                    <img src='${imageMarketing[index]}' alt='${card.title}' class='w-10 text-white' />
+                    <h4 class='text-white font-bold'>${card.title}</h4>
+                </div>
+                <div class='flex flex-col justify-center'>
+                    <h5 class=' text-justify text-md leading-tight text-white'>${shortDescription}</h5>
+                    <a href="#" class='text-secondary hover:underline see-more'>${card.SeeMore}</a>
+                    <a href="#" class='text-secondary hover:underline see-less hidden'>${card.SeeLess}</a>
+                </div>
+                <a href="#contactus" class='flex gap-1 text-md font-semibold text-secondary items-center hover:underline'>
                     <svg class='w-3 h-3 rtl:rotate-[270deg]' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 18 18'>
                         <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'/>
                     </svg>
                     ${card.buttonText}
                 </a>
-        `;
+            `;
+
+            const seeMoreBtn = marketingCard.querySelector(".see-more");
+            const seeLessBtn = marketingCard.querySelector(".see-less");
+            const descriptionEl = marketingCard.querySelector("h5");
+
+            seeMoreBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                closeAllOtherMarketingCards(marketingCard);
+                marketingCard.style.height = "fit-content";
+                marketingCard.style.gap = "1rem";
+                descriptionEl.textContent = description;
+                seeMoreBtn.classList.add("hidden");
+                seeLessBtn.classList.remove("hidden");
+            });
+
+            seeLessBtn.addEventListener("click", function (e) {
+                e.preventDefault();
+                if (window.innerWidth <= 768) {
+                    marketingCard.style.height = "400px";
+                } else {
+                    marketingCard.style.height = "340px";
+                }
+                marketingCard.style.gap = "0";
+                descriptionEl.textContent = shortDescription;
+                seeMoreBtn.classList.remove("hidden");
+                seeLessBtn.classList.add("hidden");
+            });
+        } else {
+            marketingCard.innerHTML = `
+                <div class='flex justify-start items-center gap-4'>
+                    <img src='${imageMarketing[index]}' alt='${card.title}' class='w-10 text-white' />
+                    <h4 class='text-white font-bold'>${card.title}</h4>
+                </div>
+                <div class='flex flex-col justify-center'>
+ description-control                </div>
+                <a href="#contactus" class='flex gap-1 text-md font-semibold text-secondary items-center hover:underline'>
+                    <svg class='w-3 h-3 rtl:rotate-[270deg]' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 18 18'>
+                        <path stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778'/>
+                    </svg>
+                    ${card.buttonText}
+                </a>
+            `;
+        }
+
         marketingContainer.appendChild(marketingCard);
     });
+
+    function closeAllOtherMarketingCards(currentCard) {
+        allMarketingCards.forEach((card) => {
+            if (card !== currentCard) {
+                const seeMoreBtn = card.querySelector(".see-more");
+                const seeLessBtn = card.querySelector(".see-less");
+                const descriptionEl = card.querySelector("h5");
+
+                if (seeMoreBtn && seeLessBtn && descriptionEl) {
+                    if (window.innerWidth <= 768) {
+                        card.style.height = "400px";
+                    } else {
+                        card.style.height = "340px";
+                    }
+                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
+                    seeMoreBtn.classList.remove("hidden");
+                    seeLessBtn.classList.add("hidden");
+                }
+            }
+        });
+    }
 };
 
 // Function to handle service selection based on tab id (Technical or Marketing)
@@ -135,18 +281,18 @@ emailjs.init("qtccHPQN3hT81SgUx"); // Replace with your actual public key
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("loading").style.display = "none";
     document.getElementById("body").style.display = "block";
-    const navLinks = document.querySelectorAll('#navbar-default .nav-link');
+    const navLinks = document.querySelectorAll("#navbar-default .nav-link");
     const navbarToggle = document.querySelector('[data-collapse-toggle="navbar-default"]');
     const languageSelector = document.querySelector("select");
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navbarToggle.getAttribute('aria-expanded') === 'true') {
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (navbarToggle.getAttribute("aria-expanded") === "true") {
                 navbarToggle.click();
             }
         });
     });
-    
+
     languageSelector.addEventListener("change", (event) => {
         const selectedLanguage = event.target.value;
         setLanguage(selectedLanguage);

@@ -48,13 +48,14 @@ h4 , time{
     @apply leading-normal text-xl;
 }
 h5{
-    /* font-size: 1.1rem; */
-    @apply leading-normal text-base;
+    font-size: 1.2rem;
+    /* @apply leading-normal; */
 }
 p{
     font-size: 1.15rem;
 }
 .my-container {
+    
     @apply py-5 px-20;
 }
 .glass {
@@ -71,7 +72,7 @@ p{
 }
 @media (max-width: 639px) {
     :root{
-        font-size: 16px;
+        font-size: 18px;
     }
     .my-container {
         @apply py-5 px-5;
@@ -266,12 +267,27 @@ body ::selection {
 /* =====================SERVICES================= */
 
 .service-card {
-    width: 300px;
-    height: 420px;
+    height: 400px ;
     background: linear-gradient(to bottom left, #31175d0f, #221553);
     opacity: 1;
     transition: 0.5s ease-in-out;
 }
+.description-control{
+    transition: 0.5s all ease-in-out;
+
+    /* background-color: red;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;  /* lines i want to show */
+    /* -webkit-box-orient: vertical;
+    overflow: hidden;  */
+}
+/* .description-control{
+    background-color: red;
+    height: 70%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+} */
 .service-card:hover {
     transform: scale(1.01);
     opacity: 0.8;
@@ -279,7 +295,7 @@ body ::selection {
 }
 @media (max-width: 768px) {
     .service-card {
-        width: fit-content;
+        /* width: fit-content; */
         height: 450px;
     }
 }
@@ -303,8 +319,8 @@ body ::selection {
 
 /* =====================Marketing================= */
 .marketing-card {
-    width: 300px;
-    height: 300px;
+    /* width: 300px;
+    height: 300px; */
     background: linear-gradient(to bottom, #31175d0f, #1d1553);
     opacity: 1;
     transition: 0.5s ease-in-out;
