@@ -146,8 +146,11 @@ const loadCards = (language) => {
                 const descriptionEl = card.querySelector("h5");
 
                 if (seeMoreBtn && seeLessBtn && descriptionEl) {
-                    // card.style.height = '400px';
-                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
+                    if (window.innerWidth <= 768) {
+                        card.style.height = "450px";
+                    } else {
+                        card.style.height = "400px";
+                    }                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
                     seeMoreBtn.classList.remove("hidden");
                     seeLessBtn.classList.add("hidden");
                 }
@@ -239,12 +242,12 @@ const loadCards = (language) => {
                 const descriptionEl = card.querySelector("h5");
 
                 if (seeMoreBtn && seeLessBtn && descriptionEl) {
-                    if (window.innerWidth <= 768) {
-                        card.style.height = "450px";
-                    } else {
-                        card.style.height = "400px";
-                    }
-                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
+                    // if (window.innerWidth <= 768) {
+                    //     card.style.height = "450px";
+                    // } else {
+                    //     card.style.height = "400px";
+                    // }
+                    descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) ;
                     seeMoreBtn.classList.remove("hidden");
                     seeLessBtn.classList.add("hidden");
                 }

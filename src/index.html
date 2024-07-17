@@ -32,7 +32,7 @@
     <div id="body" style="display:none;">
         <!-- =============NAVBAR================ -->
         <nav
-            class="bg-opacity-30 nav-blur my-container backdrop-blur-lg bg-white z-20 fixed w-full shadow-lg ring-1 ring-black/5">
+            class="bg-opacity-30 nav-blur my-container backdrop-blur-lg fixed z-20 bg-white w-full shadow-lg ring-1 ring-black/5">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between">
                 <a href="#main" class="flex items-center space-x-3 rtl:space-x-reverse">
                     <img src="./assets/logo.png" class="h-12 sm:h-14" alt="nano Logo" />
@@ -104,10 +104,10 @@
         <div id="main" class="hero-bg">
             <main class="hero-section">
                 <div class="hero-content my-container">
-                    <h3 data-aos="fade-left" data-aos-offset="50"
+                    <h3 data-aos="fade-up"
                         class="text-center font-normal hero-small-title capitalize" data-i18n="Hero Small Title">زوّد
                         مبيعاتك وطور أعمالك</h3>
-                    <h1 data-aos="fade-up" data-aos-duration="3000" class="text-center hero-title capitalize"
+                    <h1 data-aos="fade-down" data-aos-duration="3000" class="text-center hero-title capitalize"
                         data-i18n="Welcome to Nano Technology">بأنظمةٍ تقنيةٍ
                         ذكيةٍ وحلـــولٍ تسويقيــة</h1>
                     <a href="#service">
@@ -285,8 +285,8 @@
         <section id="service" class="lg:py-14 py-8">
             <div class="my-container">
                 <div class="py-5 flex flex-col justify-center items-center">
-                    <h2 data-aos="fade-up" class="text-center" data-i18n="Technical Services">Technical Services</h2>
-                    <h4 data-aos="fade-down" class="text-center pt-3 pb-5 leading-7 w-full sm:w-8/12"
+                    <h2 data-aos="fade-down"class="text-center" data-i18n="Technical Services">Technical Services</h2>
+                    <h4 data-aos="fade-up" class="text-center pt-3 pb-5 leading-7 w-full sm:w-8/12"
                         data-i18n="Solutions and services small title">Solutions and services small title</h4>
                 </div>
 
@@ -503,13 +503,13 @@
 
 
     <!-- emailjs from CDN -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./main.js" type="module"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.4.7/flowbite.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1200
+            duration: 1000
         });
     </script>
 </body>
