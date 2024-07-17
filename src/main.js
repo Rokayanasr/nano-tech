@@ -108,9 +108,9 @@ const loadCards = (language) => {
             seeLessBtn.addEventListener("click", function (e) {
                 e.preventDefault();
                 if (window.innerWidth <= 768) {
-                    serviceCard.style.height = "400px";
+                    serviceCard.style.height = "450px";
                 } else {
-                    serviceCard.style.height = "340px";
+                    serviceCard.style.height = "400px";
                 }
                 serviceCard.style.gap = "0";
                 descriptionEl.textContent = shortDescription;
@@ -146,7 +146,7 @@ const loadCards = (language) => {
                 const descriptionEl = card.querySelector("h5");
 
                 if (seeMoreBtn && seeLessBtn && descriptionEl) {
-                    // card.style.height = '340px';
+                    // card.style.height = '400px';
                     descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
                     seeMoreBtn.classList.remove("hidden");
                     seeLessBtn.classList.add("hidden");
@@ -159,7 +159,7 @@ const loadCards = (language) => {
 
     marketingData.forEach((card, index) => {
         const marketingCard = document.createElement("div");
-        marketingCard.className = "service-card flex flex-col items-start justify-around p-4 lg:p-8 rounded-lg shadow";
+        marketingCard.className = "service-card flex flex-col items-start justify-evenly p-4 lg:p-8 rounded-lg shadow";
         allMarketingCards.push(marketingCard);
 
         let description = card.description;
@@ -202,9 +202,9 @@ const loadCards = (language) => {
             seeLessBtn.addEventListener("click", function (e) {
                 e.preventDefault();
                 if (window.innerWidth <= 768) {
-                    marketingCard.style.height = "400px";
+                    marketingCard.style.height = "450px";
                 } else {
-                    marketingCard.style.height = "340px";
+                    marketingCard.style.height = "400px";
                 }
                 marketingCard.style.gap = "0";
                 descriptionEl.textContent = shortDescription;
@@ -240,9 +240,9 @@ const loadCards = (language) => {
 
                 if (seeMoreBtn && seeLessBtn && descriptionEl) {
                     if (window.innerWidth <= 768) {
-                        card.style.height = "400px";
+                        card.style.height = "450px";
                     } else {
-                        card.style.height = "340px";
+                        card.style.height = "400px";
                     }
                     descriptionEl.textContent = descriptionEl.textContent.substring(0, 180) + "...";
                     seeMoreBtn.classList.remove("hidden");
