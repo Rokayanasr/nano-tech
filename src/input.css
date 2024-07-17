@@ -242,14 +242,15 @@ body ::selection {
 }
 
 .about-img {
-    width: 500px;
+    width: 550px;
     position: relative;
     z-index: 1;
 }
 
 /* ================= RESULT ================= */
 .result-img {
-    width: 350px;
+    height: 95%;
+    width: 70%;
     position: relative;
     z-index: 1;
 }

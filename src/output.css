@@ -1137,6 +1137,10 @@ input:checked + .toggle-bg{
   z-index: 50;
 }
 
+.order-first{
+  order: -9999;
+}
+
 .order-last{
   order: 9999;
 }
@@ -1327,6 +1331,10 @@ input:checked + .toggle-bg{
   flex-shrink: 1;
 }
 
+.basis-1\/2{
+  flex-basis: 50%;
+}
+
 .basis-1\/4{
   flex-basis: 25%;
 }
@@ -1465,10 +1473,6 @@ input:checked + .toggle-bg{
 
 .gap-2{
   gap: 0.5rem;
-}
-
-.gap-24{
-  gap: 6rem;
 }
 
 .gap-3{
@@ -2326,7 +2330,7 @@ body ::selection {
 }
 
 .about-img {
-  width: 500px;
+  width: 550px;
   position: relative;
   z-index: 1;
 }
@@ -2334,7 +2338,8 @@ body ::selection {
 /* ================= RESULT ================= */
 
 .result-img {
-  width: 350px;
+  height: 95%;
+  width: 70%;
   position: relative;
   z-index: 1;
 }
@@ -3194,10 +3199,6 @@ body ::selection {
     padding: 0px;
   }
 
-  .md\:pl-10{
-    padding-left: 2.5rem;
-  }
-
   .md\:text-justify{
     text-align: justify;
   }
@@ -3216,16 +3217,16 @@ body ::selection {
 }
 
 @media (min-width: 1024px){
+  .lg\:order-last{
+    order: 9999;
+  }
+
   .lg\:inline-block{
     display: inline-block;
   }
 
   .lg\:flex{
     display: flex;
-  }
-
-  .lg\:hidden{
-    display: none;
   }
 
   .lg\:h-16{
@@ -3248,6 +3249,10 @@ body ::selection {
     align-items: flex-start;
   }
 
+  .lg\:gap-20{
+    gap: 5rem;
+  }
+
   .lg\:p-8{
     padding: 2rem;
   }
@@ -3255,11 +3260,6 @@ body ::selection {
   .lg\:py-14{
     padding-top: 3.5rem;
     padding-bottom: 3.5rem;
-  }
-
-  .lg\:py-20{
-    padding-top: 5rem;
-    padding-bottom: 5rem;
   }
 
   .lg\:pb-14{
