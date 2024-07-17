@@ -12,7 +12,11 @@ body {
     box-sizing: border-box;
     background-color: #0d0924;
 }
-
+html ,body{
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+}
 :root{
     --primary: #7467FD;
     /* --primary: #5138EE; */
@@ -36,14 +40,16 @@ h2 {
     @apply text-3xl font-bold my-1.5 leading-normal;
 }
 h3 {
-    font-size: 1.6rem;
-    @apply leading-normal;
+    /* font-size: 1.6rem; */
+    @apply leading-normal text-2xl;
 }
 h4 , time{
-    font-size: 1.27rem;
+    /* font-size: 1.27rem; */
+    @apply leading-normal text-xl;
 }
 h5{
-    font-size: 1.1rem;
+    /* font-size: 1.1rem; */
+    @apply leading-normal text-base;
 }
 p{
     font-size: 1.15rem;
@@ -72,9 +78,6 @@ p{
     }
 }
 
-@media (max-width: 440px){
-  
-}
 
 .logo-nav {
     font-weight: 700;
@@ -313,7 +316,9 @@ body ::selection {
 }
 
 /* =================WHY CHOSE US================= */
-
+.whyus-title{
+    padding: 7px 10px 7px 10px !important;
+}
 .chooseus-img {
     width: 250px;
     position: relative;
@@ -765,3 +770,10 @@ body ::selection {
         animation-timing-function: ease-out;
     }
 }
+
+.revealUp {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  

@@ -1,5 +1,6 @@
 import translations from "./translations.js";
 
+
 // Function to set language based on user selection
 const setLanguage = (language) => {
     const elements = document.querySelectorAll("[data-i18n]");
@@ -29,22 +30,14 @@ const tabsClick = () => {
     tabs.forEach((tab) => {
         tab.addEventListener("click", (event) => {
             event.preventDefault();
-            // Remove active class from all tabs
             tabs.forEach((tab) => tab.classList.remove("active"));
-
-            // Add active class to the clicked tab
             event.currentTarget.classList.add("active");
-
-            // Get the id of the clicked tab
             const tabId = event.currentTarget.getAttribute("id");
-
-            // Call function to handle service display based on tabId
             handleService(tabId);
         });
     });
 };
 
-// Function to load and render cards based on selected language
 const loadCards = (language) => {
     // const language = localStorage.getItem("i18next") || "en";
     const technicalData = translations[language]["Cards"];
@@ -134,11 +127,26 @@ function handleService(tabId) {
     }
 }
 function removeClass() {
-    document.getElementById('select-div').removeClass('order-last')
+    document.getElementById("select-div").removeClass("order-last");
 }
-// Initialize language selection and card loading on DOM load
+
+emailjs.init("qtccHPQN3hT81SgUx"); // Replace with your actual public key
+
 document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("loading").style.display = "none";
+    document.getElementById("body").style.display = "block";
+    const navLinks = document.querySelectorAll('#navbar-default .nav-link');
+    const navbarToggle = document.querySelector('[data-collapse-toggle="navbar-default"]');
     const languageSelector = document.querySelector("select");
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarToggle.getAttribute('aria-expanded') === 'true') {
+                navbarToggle.click();
+            }
+        });
+    });
+    
     languageSelector.addEventListener("change", (event) => {
         const selectedLanguage = event.target.value;
         setLanguage(selectedLanguage);
@@ -149,12 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setLanguage(initialLanguage);
     loadCards(initialLanguage);
     tabsClick();
-});
 
-// Initialize emailjs for form submission
-emailjs.init("qtccHPQN3hT81SgUx"); // Replace with your actual public key
-
-document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
 
     form.addEventListener("submit", (e) => {

@@ -124,6 +124,7 @@ const translations = {
         'english': "english",
         'arabic': "arabic",
         'selectlng': "Select language",
+        'All rights': '2024 Nano Technology. All rights reserved ©'
     },
     ar: {
         "Logo name": "نانــو",
@@ -247,6 +248,7 @@ const translations = {
         english: "انجليزي",
         arabic: "العربية",
         selectlng: "اختر لغة",
+        'All rights': "جميع الحقوق محفوظة لشركة نانو 2024 ©"
     },
 };
 
